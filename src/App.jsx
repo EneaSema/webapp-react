@@ -1,10 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <>
-      <div>
-        <h1>Frontend</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
