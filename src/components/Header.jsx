@@ -5,8 +5,8 @@ export default function Header() {
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="#">
-            Navbar
+          <Link className="navbar-brand" to="/">
+            Logo
           </Link>
           <button
             className="navbar-toggler"

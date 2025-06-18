@@ -1,28 +1,49 @@
 import Card from "./Card";
+import movies from "../assets/data/movies";
 
-export default function MoviesList(movies) {
+export default function MoviesList() {
+  const generateInfo = (movie) => {
+    return (
+      <>
+        <section>
+          <h2>Info sul film</h2>
+          <div>
+            <strong>Genere:</strong>
+            {movie.genre}
+          </div>
+          <div>
+            <strong>Director: </strong>
+            {movie.director}
+          </div>
+          <div>
+            <strong>Release_year: </strong>
+            {movie.release_year}
+          </div>
+          <div>
+            <strong> Depscrition: </strong>
+            {movie.abstract}
+          </div>
+        </section>
+      </>
+    );
+  };
   return (
     <div className="container">
       <section className="my-3">
-        <div className="row">
-          <div className="col-4">
-            <Card
-              title={"title"}
-              description={"abstract"}
-              link={`/movies/1`}
-            ></Card>
-          </div>
+        <div className="row g-2">
+          {movies.map((movie) => {
+            return (
+              <div className="col-4 text-center" key={movie.id}>
+                <Card
+                  image={movie.image}
+                  title={movie.title}
+                  description={generateInfo(movie)}
+                  link={`/movies/${movie.id}`}
+                ></Card>
+              </div>
+            );
+          })}
         </div>
-      </section>
-
-      <section className="my-3">
-        <h2>Recensioni</h2>
-        <p>Lista delle recensioni</p>
-      </section>
-
-      <section className="my-3">
-        <h2>la tua recnsione</h2>
-        <p>Form inserimento</p>
       </section>
     </div>
   );

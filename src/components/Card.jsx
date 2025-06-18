@@ -1,19 +1,17 @@
-export default function Card({
-  id,
-  title,
-  director,
-  genre,
-  reale_year,
-  abstract,
-  image,
-}) {
+import { Link } from "react-router-dom";
+
+export default function Card({ id, title, description, image, link }) {
   return (
     <div className="card">
       <div className="card-body">
-        <img src="" alt="" />
+        <p>{image}</p>
       </div>
       <div className="card-title">
-        <h1>Titolo</h1>
+        <h1>{title}</h1>
+        <div>{description}</div>
+        <Link to={link} className="btn btn-primary">
+          leggi le recensioni
+        </Link>
       </div>
     </div>
   );
