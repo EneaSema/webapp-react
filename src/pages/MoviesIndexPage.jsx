@@ -4,9 +4,10 @@ import axios from "axios";
 
 export default function MoviesIndexPage() {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     axios.get("http://localhost:3000/movies").then((res) => {
-      const movies = res.data;
+      const movies = res.data.movies;
       setMovies(movies);
     });
   }, []);
@@ -15,7 +16,7 @@ export default function MoviesIndexPage() {
       <div className="container">
         <h1>Movies List</h1>
       </div>
-      <MoviesList />
+      <MoviesList movies={movies} />
     </>
   );
 }
