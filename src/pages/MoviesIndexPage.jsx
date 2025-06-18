@@ -11,6 +11,7 @@ export default function MoviesIndexPage() {
       setMovies(movies);
     });
   }, []);
+
   return (
     <>
       <div className="container">

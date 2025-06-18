@@ -1,5 +1,4 @@
 import Card from "./Card";
-import movies from "../assets/data/movies";
 
 export default function MoviesList({ movies }) {
   const generateInfo = (movie) => {
@@ -27,7 +26,7 @@ export default function MoviesList({ movies }) {
       </>
     );
   };
-  console.log(movies);
+
   return (
     <div className="container">
       <section className="my-3">
