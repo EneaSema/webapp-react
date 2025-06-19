@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import axios from "axios";
 
 import ReviewsList from "../components/ReviewsList";
+import ReviewForm from "../components/ReviewForm";
 
 export default function MoviesShowPage() {
   const { id } = useParams();
@@ -34,19 +35,7 @@ export default function MoviesShowPage() {
 
         {movie.reviews && <ReviewsList reviews={movie.reviews} />}
 
-        <section className="my-3">
-          <h2>
-            <strong>Inserisci la tua recensione</strong>
-          </h2>
-          <form className="formReview ">
-            <label htmlFor="name">Name</label>
-            <input type="text" />
-            <label htmlFor="comment">Commento</label>
-            <input type="text" />
-            <label htmlFor="vote">Voto</label>
-            <input type="number" />
-          </form>
-        </section>
+        <ReviewForm idMovie={movie.id}></ReviewForm>
       </div>
     </>
   );
