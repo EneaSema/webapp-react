@@ -35,7 +35,7 @@ export default function MoviesList({ movies }) {
             return (
               <div className="col-4 text-center" key={movie.id}>
                 <Card
-                  image={movie.image}
+                  image={`http://localhost:3000/movies_cover/${movie.image}`}
                   title={movie.title}
                   description={generateInfo(movie)}
                   link={`/movies/${movie.id}`}

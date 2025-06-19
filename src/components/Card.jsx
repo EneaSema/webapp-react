@@ -7,7 +7,7 @@ export default function Card({ title, description, image, link }) {
         <h1>{title}</h1>
       </div>
       <div className="card-body">
-        <img className="poster w-100%" src={image} alt={title} />
+        <img className="" src={image} alt={title} />
         <div>{description}</div>
       </div>
 

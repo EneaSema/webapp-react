@@ -9,7 +9,7 @@ export default function ReviewsList({ reviews }) {
       </h2>
 
       {reviews.map((review) => {
-        <ReviewsCard key={review.id} review={review} />;
+        return <ReviewsCard key={review.id} review={review} />;
       })}
     </section>
   );

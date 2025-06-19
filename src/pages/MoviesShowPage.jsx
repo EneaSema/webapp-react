@@ -3,24 +3,22 @@ import { useParams } from "react-router-dom";
 import Card from "../components/Card";
 import axios from "axios";
 
-import ReviewsList from "../components/ReviewsCard";
+import ReviewsList from "../components/ReviewsList";
 
 export default function MoviesShowPage() {
   const { id } = useParams();
 
-  const [reviews, setReviews] = useState([]);
+  const [movie, setMovie] = useState({});
 
   useEffect(() => {
     axios.get(`http://localhost:3000/movies/${id}`).then((res) => {
-      console.log(res);
-      console.log("ciao");
+      //console.log(res);
 
-      console.log(res);
-      const reviews = res.data.movie;
-      console.log("ciao");
+      //console.log(res);
+      const movie = res.data.movie;
 
-      setReviews(reviews);
-      console.log(reviews);
+      setMovie(movie);
+      //console.log(movie);
     });
   }, []);
 
@@ -28,18 +26,26 @@ export default function MoviesShowPage() {
     <>
       <div className="container">
         <Card
-          title={reviews.title}
-          description={reviews.abstract}
-          link={`/movies/${reviews.id}`}
+          title={movie.title}
+          image={`http://localhost:3000/movies_cover/${movie.image}`}
+          description={movie.abstract}
+          link={`/movies/${movie.id}`}
         ></Card>
 
-        {/* <ReviewsList reviews={reviews.reviews} /> */}
+        {movie.reviews && <ReviewsList reviews={movie.reviews} />}
 
         <section className="my-3">
           <h2>
             <strong>Inserisci la tua recensione</strong>
           </h2>
-          <p>Form inserimento</p>
+          <form className="formReview ">
+            <label htmlFor="name">Name</label>
+            <input type="text" />
+            <label htmlFor="comment">Commento</label>
+            <input type="text" />
+            <label htmlFor="vote">Voto</label>
+            <input type="number" />
+          </form>
         </section>
       </div>
     </>
