@@ -1,28 +1,11 @@
-import { useEffect, useState } from "react";
-
-const formInitialData = {
-  name: "",
-  text: "",
-  vote: 1,
-};
-
-export default function ReviewForm({ idMovie }) {
-  const [formData, setFormData] = useState(formInitialData);
-
-  useEffect(() => {
-    setFormData({
-      movie_id: idMovie,
-      ...formData,
-    });
-  }, []);
-
+export default function ReviewForm({
+  formInitialData,
+  formData,
+  setFormData,
+  handleFormSubmit,
+}) {
   const handleInputChange = (e) => {
-    setFormData({ ...formInitialData, [e.taget.name]: e.target.value });
-  };
-  console.log(formData);
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+    setFormData({ ...formInitialData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -36,8 +19,8 @@ export default function ReviewForm({ idMovie }) {
             Name
           </label>
           <input
-            onChange={handleInputChange}
             value={formData.name}
+            onChange={handleInputChange}
             type="text"
             className="form-control"
             id="name"
@@ -49,8 +32,8 @@ export default function ReviewForm({ idMovie }) {
             Recensione
           </label>
           <textarea
-            onChange={handleInputChange}
             value={formData.text}
+            onChange={handleInputChange}
             className="form-control"
             name="text"
             id="text"
@@ -60,8 +43,8 @@ export default function ReviewForm({ idMovie }) {
             Voto
           </label>
           <input
-            onChange={handleInputChange}
             value={formData.vote}
+            onChange={handleInputChange}
             type="number"
             className="form-control"
             id="voto"
